@@ -1,0 +1,38 @@
+{
+  "name": "nightly-review",
+  "version": "0.1.0",
+  "description": "Automação noturna de code review: tarefas do Notion, MRs do GitLab e review somente leitura com o Claude.",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "nightly-review": "dist/cli/index.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "tsx src/cli/index.ts",
+    "review": "tsx src/cli/index.ts run",
+    "demo": "tsx src/cli/index.ts demo",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:patterns": "vitest run tests/patterns"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "0.3.296",
+    "@notionhq/client": "^5.27.0",
+    "commander": "^15.0.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.5",
+    "eslint": "^10.12.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0",
+    "typescript-eslint": "^8.71.1",
+    "vitest": "^5.0.3"
+  }
+}

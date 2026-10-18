@@ -1,0 +1,7 @@
+# Linux (cron): de segunda a sexta, às 02:55.
+# Instale com `crontab -e` e troque o caminho pelo do projeto.
+#
+# O cron não executa a rodada perdida se a máquina estava desligada no horário;
+# para isso, prefira o timer do systemd.
+
+55 2 * * 1-5 /CAMINHO/PARA/nightly-review/scripts/nightly.sh

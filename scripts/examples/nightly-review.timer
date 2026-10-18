@@ -1,0 +1,12 @@
+# Linux (systemd, unidade de usuário): de segunda a sexta, às 02:55.
+# Persistent=true executa ao ligar a máquina, se o horário passou com ela desligada.
+
+[Unit]
+Description=Agenda do nightly-review
+
+[Timer]
+OnCalendar=Mon..Fri 02:55
+Persistent=true
+
+[Install]
+WantedBy=timers.target

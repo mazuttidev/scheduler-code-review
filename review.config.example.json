@@ -1,0 +1,22 @@
+{
+  "dataDir": "~/.nightly-review",
+  "taskSource": {
+    "kind": "notion",
+    "notion": {
+      "dataSourceId": "00000000-0000-0000-0000-000000000000",
+      "statusProperty": "Status",
+      "statusPropertyType": "status",
+      "reviewStatus": "Em revisão",
+      "titleProperty": "Nome",
+      "mergeRequestUrlProperty": "MR",
+      "businessRulesProperty": "Regras de negócio",
+      "acceptanceCriteria": { "from": "heading", "heading": "Critérios de aceite" }
+    }
+  },
+  "codeHost": { "kind": "gitlab", "baseUrl": "https://gitlab.com", "cloneProtocol": "ssh" },
+  "provider": { "kind": "claude", "maxTurns": 30, "timeoutMs": 900000 },
+  "outputs": ["json", "markdown"],
+  "limits": { "maxTasksPerRun": 10, "maxDiffBytes": 300000 },
+  "prompts": { "systemPath": "prompts/system.md", "instructionsPath": "prompts/review-instructions.md" },
+  "keepWorkspaces": false
+}

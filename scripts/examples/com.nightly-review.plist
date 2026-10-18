@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  macOS (launchd): de segunda a sexta, às 02:55.
+
+  Troque o caminho pelo do projeto e instale:
+
+    cp com.nightly-review.plist ~/Library/LaunchAgents/
+    launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.nightly-review.plist
+
+  Para remover:
+
+    launchctl bootout gui/$(id -u)/com.nightly-review
+
+  Se o Mac estava dormindo no horário, o launchd executa ao acordar.
+  Para acordá-lo antes: sudo pmset repeat wake MTWRF 02:50:00
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.nightly-review</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/CAMINHO/PARA/nightly-review/scripts/nightly.sh</string>
+  </array>
+
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>2</integer><key>Minute</key><integer>55</integer></dict>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>2</integer><key>Minute</key><integer>55</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>2</integer><key>Minute</key><integer>55</integer></dict>
+    <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>2</integer><key>Minute</key><integer>55</integer></dict>
+    <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>2</integer><key>Minute</key><integer>55</integer></dict>
+  </array>
+</dict>
+</plist>

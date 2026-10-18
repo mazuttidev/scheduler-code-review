@@ -1,0 +1,5 @@
+node_modules
+dist
+.env
+review.config.json
+.DS_Store

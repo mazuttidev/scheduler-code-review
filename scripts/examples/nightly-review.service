@@ -1,0 +1,15 @@
+# Linux (systemd, unidade de usuário). Copie junto com o .timer:
+#
+#   mkdir -p ~/.config/systemd/user
+#   cp nightly-review.service nightly-review.timer ~/.config/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now nightly-review.timer
+#
+# Para o timer disparar sem você estar logado: loginctl enable-linger "$USER"
+
+[Unit]
+Description=nightly-review: code review noturno
+
+[Service]
+Type=oneshot
+ExecStart=/CAMINHO/PARA/nightly-review/scripts/nightly.sh
